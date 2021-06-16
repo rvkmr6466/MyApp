@@ -1,0 +1,54 @@
+<div class="navbar-contaier">
+    <nav class="navbar navbar-expand-lg navbar navbar-dark bg-dark custom-navbar">
+        <button mat-icon-button color="primary" aria-label="Example icon button with a home icon"> <!-- (click)="drawer.toggle()" -->
+            <mat-icon>home</mat-icon>
+        </button>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown"
+            aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavDropdown">
+            <ul class="navbar-nav" *ngIf="!!isAuthenticated">
+                <li class="nav-item active">
+                    <a class="nav-link" routerLink="/home-page" routerLinkActive="active">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" routerLink="/features" routerLinkActive="active">Features</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" routerLink="/pricing" routerLinkActive="active">Pricing</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" routerLink="/dashboard" routerLinkActive="active">Dashboard</a>
+                </li>
+            </ul>
+        </div>
+        <div class="right-button-header">
+            <div class="collapse navbar-collapse" id="navbarNavDropdown">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link" routerLink="/register-form" routerLinkActive="active"
+                            *ngIf="!isAuthenticated">Register</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" routerLink="/login-form" routerLinkActive="active" *ngIf="!isAuthenticated">
+                            Login</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" *ngIf="!!isAuthenticated">
+                            Logout</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+</div>
+<!-- <mat-drawer-container class="example-container" autosize>
+    <mat-drawer #drawer class="example-sidenav" mode="side">
+        <p>Auto-resizing sidenav</p>
+        <p *ngIf="isSideNavOpen">Lorem, ipsum dolor sit amet consectetur.</p>
+        <button (click)="isSideNavOpen = !isSideNavOpen">
+            Toggle extra text
+        </button>
+    </mat-drawer>
+</mat-drawer-container> -->

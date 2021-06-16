@@ -1,0 +1,47 @@
+<div class="register-form">
+    <div class="container">
+        <div class="row justify-content-center align-items-center">
+            <div class="col-md-6">
+                <h1>Register Yourself</h1>
+                <br>
+                <div class="alert alert-success" role="alert" *ngIf="!!isRegister">
+                    Email Registered Successfully!!!
+                </div>
+
+                <div class="alert alert-danger" role="alert" *ngIf="!!isError">
+                    {{errorMessage}}
+                </div>
+                <form [formGroup]="form" (ngSubmit)="register()">
+
+                    <div class="form-group">
+                        <label for="exampleInputEmail1">Username or Email</label>
+
+                        <input type="email" class="form-control" formControlName="username" id="exampleInputEmail1"
+                            aria-describedby="emailHelp" placeholder="Enter email" email required>
+
+                        <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone
+                            else.</small>
+                    </div>
+                    <br>
+                    <div class="form-group">
+
+                        <label for="exampleInputPassword1">Password</label>
+
+                        <input type="password" class="form-control" formControlName="password"
+                            id="exampleInputPassword1" placeholder="Password" password required minlength="6">
+                    </div>
+                    <br>
+                    <div class="form-group">
+
+                        <label for="exampleConfirmInputPassword2">Confirm Password</label>
+
+                        <input type="password" class="form-control" formControlName="confirmPassword"
+                            id="exampleConfirmInputPassword2" placeholder="Confirm Password">
+                    </div>
+                    <br>
+                    <button type="submit" class="btn btn-success">Register</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
