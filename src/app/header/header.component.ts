@@ -13,7 +13,8 @@ export class HeaderComponent extends AppComponent {
 	public isAuthenticated: boolean = true	//false;
 	public userSubs: Subscription;
 	public isSideNavOpen: boolean = false;
-	public sideNavbar=true;
+	public sideNavbar = true;
+	showProducts: boolean = false;
 
 	constructor(
 		private authService: AuthenticationService,
@@ -27,6 +28,8 @@ export class HeaderComponent extends AppComponent {
 		// 	this.isAuthenticated = !!user;
 		// });
 		console.log("User Subscribed.");
+		var clickEvent = document.querySelector(".nav-link");
+		// clickEvent.onclick = function () { this.showProducts = false; }
 	}
 
 	ngOnDestroy() {

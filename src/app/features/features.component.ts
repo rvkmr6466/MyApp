@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { AppComponent } from '../app.component';
 
 @Component({
@@ -7,12 +8,20 @@ import { AppComponent } from '../app.component';
 	styleUrls: ['./features.component.scss']
 })
 export class FeaturesComponent extends AppComponent {
+	@Input() showProducts: boolean = false;
 
-	constructor() {
+	constructor(
+		private router: Router
+	) {
 		super();
 	}
 
 	ngOnInit(): void {
+		this.showProducts = false;
 	}
 
+	showProductsComponent() {
+		this.showProducts = true;
+		this.router.navigate(['/features/products']);
+	}
 }

@@ -15,12 +15,21 @@ import { ResetPasswordComponent } from './reset-password/reset-password.componen
 import { FeaturesComponent } from './features/features.component';
 import { PricingComponent } from './pricing/pricing.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
-// import { ToasterComponent } from './header/toaster/toaster.component';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
+import { FullCalendarModule } from '@fullcalendar/angular'; // must go before plugins
+import dayGridPlugin from '@fullcalendar/daygrid'; // a plugin!
+import timeGridPlugin from '@fullcalendar/timegrid'; // a plugin!
+import interactionPlugin from '@fullcalendar/interaction';
+import { ProductsComponent } from './features/products/products.component'; // a plugin!
 
+FullCalendarModule.registerPlugins([ // register FullCalendar plugins
+	dayGridPlugin,
+	interactionPlugin,
+	timeGridPlugin
+]);
 
 @NgModule({
 	declarations: [
@@ -33,7 +42,7 @@ import { MatIconModule } from '@angular/material/icon';
 		FeaturesComponent,
 		PricingComponent,
 		DashboardComponent,
-		// ToasterComponent,
+		ProductsComponent,
 	],
 	imports: [
 		BrowserModule,
@@ -43,7 +52,8 @@ import { MatIconModule } from '@angular/material/icon';
 		MatSidenavModule,
 		BrowserAnimationsModule,
 		MatButtonModule,
-		MatIconModule
+		MatIconModule,
+		FullCalendarModule,
 	],
 	providers: [
 		AuthenticationService,

@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { FeaturesComponent } from './features/features.component';
+import { ProductsComponent } from './features/products/products.component';
 import { HomePageComponent } from './home-page/home-page.component';
 import { LoginFormComponent } from './login-form/login-form.component';
 import { PricingComponent } from './pricing/pricing.component';
@@ -16,7 +17,18 @@ const routes: Routes = [
 	},
 	{
 		path: 'features',
-		component: FeaturesComponent
+		component: FeaturesComponent,
+		children: [
+			/* 			{
+							path: '', 
+							redirectTo: 'products',
+							pathMatch: 'full'
+						}, */
+			{
+				path: 'products',
+				component: ProductsComponent
+			}
+		]
 	},
 	{
 		path: 'pricing',
